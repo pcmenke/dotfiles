@@ -46,3 +46,6 @@ set expandtab
 " seem to happen.
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
+
+" set default shell to bash. fish caused issues
+set shell=bash
