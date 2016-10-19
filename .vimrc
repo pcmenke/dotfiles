@@ -16,6 +16,8 @@ endif
 
 " set line numbers
 set number
+" highlight current line
+set cursorline
 
 " set highlight search matches
 set hlsearch
@@ -60,6 +62,8 @@ endif
 " pathogen plugin manager
 execute pathogen#infect()
 
+" add filepath to statusline %F for full %f for relative path
+set statusline+=%F
 " syntastic settings
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -69,7 +73,7 @@ let g:syntastic_always_populate_loc_list = 1
 " close error list when node left, don't open automatically
 let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_wq = 1
 
 let g:syntastic_enable_highlighting = 1
 let g:syntastic_enable_balloons = 1
