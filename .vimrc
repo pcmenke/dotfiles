@@ -47,5 +47,33 @@ set expandtab
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
 
-" set default shell to bash. fish caused issues
+" set default shell to bash. other shells(fish) caused issues
 set shell=bash
+
+" display column when text goes past 80 characters per line
+if exists('+colorcolumn')
+  set colorcolumn=80
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
+
+" pathogen plugin manager
+execute pathogen#infect()
+
+" syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+" close error list when node left, don't open automatically
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_enable_highlighting = 1
+let g:syntastic_enable_balloons = 1
+" pflake8, pyflakes, pylint and a native python
+let g:syntastic_python_checkers = ['pyflakes'] 
+nnoremap <F4> :SyntasticCheck<CR>
+nnoremap <F5> :SyntasticReset<CR>
