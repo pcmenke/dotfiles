@@ -78,6 +78,14 @@ let g:syntastic_check_on_wq = 1
 let g:syntastic_enable_highlighting = 1
 let g:syntastic_enable_balloons = 1
 " pflake8, pyflakes, pylint and a native python
-let g:syntastic_python_checkers = ['pyflakes'] 
+let g:syntastic_python_checkers = ['pylint'] 
 nnoremap <F4> :SyntasticCheck<CR>
 nnoremap <F5> :SyntasticReset<CR>
+
+"remap "jj" to escape
+ino jj <esc>
+ino jk <esc>
+cno jj <c-c> 
+" "v" toggles visual mode
+vno v <esc>
+
