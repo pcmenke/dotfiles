@@ -23,9 +23,11 @@ set cursorline
 set hlsearch
 
 " Taglist
-nnoremap <F3> :TlistToggle<CR>
-let Tlist_Use_Right_Window = 1
+"nnoremap <F3> :TlistToggle<CR>
+"let Tlist_Use_Right_Window = 1
 
+" Tagbar
+nnoremap <F3> :TagbarToggle<CR>
 "enable mouse support
 set mouse=a
 
@@ -63,7 +65,7 @@ endif
 execute pathogen#infect()
 
 " add filepath to statusline %F for full %f for relative path
-set statusline+=%F
+"set statusline+=%F
 " syntastic settings
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -71,9 +73,11 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 " close error list when node left, don't open automatically
-let g:syntastic_auto_loc_list = 2
+let g:syntastic_auto_loc_list = 1 "2
+let g:syntastic_loc_list_height=1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
+let g:syntastic_enable_signs = 1
 
 let g:syntastic_enable_highlighting = 1
 let g:syntastic_enable_balloons = 1
