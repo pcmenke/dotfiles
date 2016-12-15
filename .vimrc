@@ -26,6 +26,8 @@ set hlsearch
 "nnoremap <F3> :TlistToggle<CR>
 "let Tlist_Use_Right_Window = 1
 
+"NerdTree
+nnoremap <F2> :NERDTreeToggle<CR>
 " Tagbar
 nnoremap <F3> :TagbarToggle<CR>
 "enable mouse support
@@ -65,7 +67,8 @@ endif
 execute pathogen#infect()
 
 " add filepath to statusline %F for full %f for relative path
-"set statusline+=%F
+"set statusline+=%f
+"set statusline+=\ -\   "seperator
 " syntastic settings
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -74,7 +77,7 @@ set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 " close error list when node left, don't open automatically
 let g:syntastic_auto_loc_list = 1 "2
-let g:syntastic_loc_list_height=1
+let g:syntastic_loc_list_height= 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
 let g:syntastic_enable_signs = 1
@@ -82,9 +85,10 @@ let g:syntastic_enable_signs = 1
 let g:syntastic_enable_highlighting = 1
 let g:syntastic_enable_balloons = 1
 " pflake8, pyflakes, pylint and a native python
-let g:syntastic_python_checkers = ['pylint'] 
-nnoremap <F4> :SyntasticCheck<CR>
-nnoremap <F5> :SyntasticReset<CR>
+let g:syntastic_python_checkers = ['pylint', 'pydocstyle']
+let g:syntastic_cpp_compiler_options = ' -std=c++11 -Wall '
+nnoremap <F4> :SyntasticCheck<CR> :lopen<CR>
+nnoremap <F5> :SyntasticReset<CR> :lclose<CR>
 
 "remap "jj" to escape
 ino jj <esc>
@@ -92,4 +96,7 @@ ino jk <esc>
 cno jj <c-c> 
 " "v" toggles visual mode
 vno v <esc>
+
+" youcomplete me
+let g:ycm_python_binary_path = 'python'
 
