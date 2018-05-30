@@ -1,5 +1,8 @@
 set tags=./tags,tags;
 
+" pathogen plugin manager
+execute pathogen#infect()
+
 " set colorscheme
 syntax enable
 if has('gui_running')
@@ -62,9 +65,6 @@ if exists('+colorcolumn')
 else
   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
-
-" pathogen plugin manager
-execute pathogen#infect()
 
 " add filepath to statusline %F for full %f for relative path
 "set statusline+=%f
