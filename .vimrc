@@ -6,17 +6,25 @@ execute pathogen#infect()
 " enable syntax highlighting
 syntax enable
 
+if (has("termguicolors"))
+  set termguicolors
+endif
+
 " set colorscheme
 if has('gui_running')
+    let g:one_allow_italics = 1
     set background=dark
     colorscheme solarized
     if has("gui_gtk2")
         set guifont=Inconsolata\ 9
     endif
+    if has("gui_gtk3")
+        set guifont=Inconsolata\ 9
+    endif
 else
     set background=dark
     colorscheme solarized
-    set t_Co=16
+    "set t_Co=16
 endif
 
 " set line numbers
